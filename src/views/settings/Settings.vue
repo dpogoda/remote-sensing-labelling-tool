@@ -43,7 +43,7 @@ async function saveHotKey(item: HotKeySetting, keyCombination: string[]) {
     settingsStore.isLoading = true;
     await settingsStore.saveSetting({
         ...item,
-        value: JSON.stringify(keyCombination)
+        value: [JSON.stringify(keyCombination)]
     });
     settingsStore.isLoading = false;
 }
