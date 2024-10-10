@@ -11,7 +11,7 @@ export const router = createRouter({
       component: () => import('@/views/pages/maintenance/error/Error404Page.vue')
     },
     MainRoutes,
-    AuthRoutes
+    // AuthRoutes
   ]
 });
 
@@ -30,18 +30,18 @@ interface AuthStore {
   logout(): void;
 }
 
-router.beforeEach(async (to, from, next) => {
-  // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = ['/auth/login'];
-  const authRequired = !publicPages.includes(to.path);
-  const auth: AuthStore = useAuthStore();
+// router.beforeEach(async (to, from, next) => {
+//   // redirect to login page if not logged in and trying to access a restricted page
+//   const publicPages = ['/auth/login'];
+//   const authRequired = !publicPages.includes(to.path);
+//   const auth: AuthStore = useAuthStore();
 
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (authRequired && !auth.user) {
-      auth.returnUrl = to.fullPath;
-      return next('/auth/login');
-    } else next();
-  } else {
-    next();
-  }
-});
+//   if (to.matched.some((record) => record.meta.requiresAuth)) {
+//     if (authRequired && !auth.user) {
+//       auth.returnUrl = to.fullPath;
+//       return next('/auth/login');
+//     } else next();
+//   } else {
+//     next();
+//   }
+// });

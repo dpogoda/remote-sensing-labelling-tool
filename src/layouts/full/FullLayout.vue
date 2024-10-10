@@ -36,7 +36,7 @@ watch(() => labelStore.listOfImages, (newListOfImages) => {
     {
       title: 'Editor',
       icon: ChalkboardIcon,
-      to: '/todos'
+      to: '/editor'
     },
     {
       title: 'Settings',
